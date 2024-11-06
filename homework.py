@@ -1,5 +1,9 @@
 class InfoMessage:
-    """Информационное сообщение о тренировке."""
+    """
+    A class to show a training information.
+    ...
+
+    """
     pass
 
 
@@ -22,6 +26,8 @@ class Training:
         Duration of the training session in hours.
     weight : float
         Weight of the athlete in kilograms.
+    distance : float
+        Training distance in kilometers.
 
     Methods
     -------
@@ -45,7 +51,8 @@ class Training:
                  ) -> None:
         self.action = action
         self.duration = duration
-        self.weight: weight
+        self.weight = weight
+        self.distance = self.get_distance()
 
     def get_distance(self) -> float:
         """Get distance in km."""
@@ -53,7 +60,7 @@ class Training:
 
     def get_mean_speed(self) -> float:
         """Get mean speed."""
-        return self.get_distance() / self.duration
+        return self.distance / self.duration
 
     def get_spent_calories(self) -> float:
         """Get spent calories."""
