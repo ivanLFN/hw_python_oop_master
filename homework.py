@@ -4,29 +4,64 @@ class InfoMessage:
 
 
 class Training:
-    """Базовый класс тренировки."""
+    """
+    A base class to training.
+    ...
+    Constants
+    ---------
+    LEN_STEP : float
+        Distance covered by an athlete in one step, in meters.
+    M_IN_KM : int
+        Constant for converting results from meters to kilometers.
+
+    Attributes
+    ----------
+    action : int
+        Number of actions performed.
+    duration : float
+        Duration of the training session in hours.
+    weight : float
+        Weight of the athlete in kilograms.
+
+    Methods
+    -------
+    get_distance():
+        Calculates the distance covered during the training.
+    get_mean_speed():
+        Calculates the mean speed the training.
+    get_spent_calories():
+        Calculates the spent calories the training.
+    show_training_info():
+        Return training info message.
+    """
+
+    LEN_STEP = 0.65
+    M_IN_KM = 1000
 
     def __init__(self,
                  action: int,
                  duration: float,
                  weight: float,
                  ) -> None:
-        pass
+        self.action = action
+        self.duration = duration
+        self.weight: weight
 
     def get_distance(self) -> float:
-        """Получить дистанцию в км."""
-        pass
+        """Get distance in km."""
+        return self.action * self.LEN_STEP / self.M_IN_KM
 
     def get_mean_speed(self) -> float:
-        """Получить среднюю скорость движения."""
-        pass
+        """Get mean speed."""
+        return self.get_distance() / self.duration
 
     def get_spent_calories(self) -> float:
-        """Получить количество затраченных калорий."""
+        """Get spent calories."""
         pass
 
     def show_training_info(self) -> InfoMessage:
-        """Вернуть информационное сообщение о выполненной тренировке."""
+        """Return training info message."""
+        return InfoMessage()
         pass
 
 
